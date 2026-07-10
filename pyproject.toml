@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "epilect"
+version = "0.1.0"
+description = "Per-read nanopore methylation strain deconvolution and phasing."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "The Epilect authors" }]
+keywords = ["nanopore", "methylation", "strain", "deconvolution", "phasing", "metagenomics"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+dependencies = [
+    "numpy>=1.21",
+    "pysam>=0.20",
+    "matplotlib>=3.5",
+    "pillow>=9.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+]
+
+[project.scripts]
+epilect = "epilect.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/epilect/epilect"
+
+[tool.setuptools]
+packages = ["epilect"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
